@@ -9,7 +9,7 @@ if(nivel=="facil"){
 	tempoNivel=2000
 	var tempo=20;
 }else if(nivel=="normal"){
-	tempoNivel=1200
+	tempoNivel=1500
 }else if(nivel=="dificil"){
 	tempoNivel=1100
 }
