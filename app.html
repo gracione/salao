@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		html{
+			cursor: url(mata_mosca.png) 30 30, auto;
+		}
+		body{
+			background-image: url('bg.jpg');
+			background-repeat: no-repeat;
+		}
+		.mosca1{
+			width: 50px;
+			height: 50px;
+		}
+		.mosca2{
+			width: 70px;
+			height: 70px;
+		}
+		.mosca3{
+			width: 90px;
+			height: 90px;
+		}
+		.ladoA{
+			transform: scale(1);
+		}
+		.ladoB{
+			transform: scale(-1);
+		}
+		.painel{
+			position: absolute;
+			width: 190px;
+			padding: 10px;
+			left: 0px;
+			bottom: 0px;
+			border-top: solid 1px #fff;
+			background-color: #fff;
+			opacity: 0.7;
+		}
+		.vidas{
+			float:left;
+		}
+		.cronometro{
+			float: left;
+			font-size: 20px;
+			font-weight: bold;
+		}
+	</style>
+	<script src="jogo.js"></script>
+</head>
+<body onresize="tamanhoDaTela()">
+	<div class="painel" >
+		<div class="vidas">
+			<img id="v1" src="coracao_cheio.png"/>
+			<img id="v2" src="coracao_cheio.png"/>
+			<img id="v3" src="coracao_cheio.png"/>
+		</div>
+		<div class="cronometro">Tempo restante:<span id="cronometro"></span></div>
+	</div>
+</body>
+<script type="text/javascript">
+	document.getElementById('cronometro').innerHTML=tempo;
+	var criaMosta = setInterval(function(){ randomica()}, tempoNivel);
+</script>
+</html>

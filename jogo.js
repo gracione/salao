@@ -1,14 +1,36 @@
 var altura=0;
 var largura=0;
 var vidas=1;
+var tempo=20;
+var tempoNivel=0;
+var nivel = window.location.search;
+nivel = nivel.replace('?','');
+if(nivel=="facil"){
+	tempoNivel=2000
+	var tempo=20;
+}else if(nivel=="normal"){
+	tempoNivel=1200
+}else if(nivel=="dificil"){
+	tempoNivel=800
+}
+
 
 function tamanhoDaTela(){
-
 	altura=window.innerHeight;
 	largura=window.innerWidth;
-
 }
 tamanhoDaTela();
+
+var cronometro= setInterval(function(){
+	tempo-=1;
+	if(tempo<0){
+		clearInterval(cronometro);
+		clearInterval(criaMosta);
+		window.location.href="vitoria.html";
+	}else{
+		document.getElementById('cronometro').innerHTML=tempo;
+	}
+},1000);
 
 	posicaoX = posicaoX < 0 ? 0 : posicaoX;
 	posicaoY = posicaoY < 0 ? 0 : posicaoY;
@@ -22,7 +44,7 @@ function randomica(){
 			window.location.href="fimDeJogo.html"
 		}
 		else{
-			document.getElementById('v'+vidas).src="imagens/coracao_vazio.png";
+			document.getElementById('v'+vidas).src="coracao_vazio.png";
 			vidas++;			
 		}
 	}
@@ -33,7 +55,7 @@ function randomica(){
 
 	//cria elemento html
 	var mosca = document.createElement('img');
-	mosca.src = 'imagens/mosca.png';
+	mosca.src = 'mosca.png';
 	mosca.className = tamanhoMosca()+' '+ladoMosca();
 	mosca.style.left= posicaoX+"px";
 	mosca.style.top= posicaoY+"px";
