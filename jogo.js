@@ -11,7 +11,7 @@ if(nivel=="facil"){
 }else if(nivel=="normal"){
 	tempoNivel=1200
 }else if(nivel=="dificil"){
-	tempoNivel=800
+	tempoNivel=1100
 }
 
 
